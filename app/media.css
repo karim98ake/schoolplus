@@ -1,0 +1,30 @@
+@media (max-width: 480px) {
+  :root {
+    --unit: 0.24132vw;
+  }
+  nav > div {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: calc(var(--unit) * 20);
+    border-radius: calc(var(--unit) * 10);
+  }
+  nav ul {
+    order: 1;
+    flex-direction: column;
+    background-color: white;
+    padding: calc(var(--unit) * 20);
+  }
+  nav button {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+  }
+  .logo {
+    height: calc(var(--unit) * 50);
+    width: calc(var(--unit) * 160);
+  }
+}

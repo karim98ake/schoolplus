@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+@import url("media.css");
 
 @tailwind base;
 @tailwind components;
@@ -8,6 +9,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --unit: 0.065vw;
 }
 
 * {
@@ -31,16 +33,47 @@ nav {
   -webkit-backdrop-filter: blur(7.6px);
   border: 1px solid rgba(255, 255, 255, 1);
 }
+.logo {
+  height: calc(var(--unit) * 60);
+  width: calc(var(--unit) * 180);
+}
+.show {
+  display: flex !important;
+}
 .btn {
-  min-height: 50px;
-  border-radius: 100px;
+  min-height: calc(var(--unit) * 56);
+  border-radius: calc(var(--unit) * 100);
   display: flex;
   align-items: center;
-  padding-inline: 20px;
+  font-size: calc(var(--unit) * 18);
+  padding-inline: calc(var(--unit) * 20);
+  font-weight: 600;
 }
 
-.custom-bg {
-  background-image: url("../public/images/bg.png");
-  background-position: center;
-  background-size: cover;
+.icon {
+  height: calc(var(--unit) * 25);
+  width: calc(var(--unit) * 25);
+}
+::-webkit-scrollbar {
+  width: calc(var(--unit) * 12); /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #612ef6; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Roundness of the scrollbar thumb */
+  border: 3px solid #f1f1f1; /* Padding around the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb when hovered */
+}
+
+ul a {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: calc(var(--unit) * 16);
 }

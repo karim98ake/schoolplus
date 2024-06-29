@@ -504,11 +504,41 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.absolute{
+  position: absolute;
+}
+.left-0{
+  left: 0px;
+}
+.top-0{
+  top: 0px;
+}
+.z-\[-1\]{
+  z-index: -1;
+}
 .flex{
   display: flex;
 }
+.hidden{
+  display: none;
+}
+.h-full{
+  height: 100%;
+}
 .min-h-screen{
   min-height: 100vh;
+}
+.w-2\/4{
+  width: 50%;
+}
+.w-\[80\%\]{
+  width: 80%;
+}
+.w-fit{
+  width: fit-content;
+}
+.w-full{
+  width: 100%;
 }
 .items-center{
   align-items: center;
@@ -519,12 +549,18 @@ video {
 .gap-3{
   gap: 0.75rem;
 }
+.gap-5{
+  gap: 1.25rem;
+}
 .rounded-full{
   border-radius: 9999px;
 }
 .bg-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(97 46 246 / var(--tw-bg-opacity));
+}
+.object-cover{
+  object-fit: cover;
 }
 .p-1{
   padding: 0.25rem;
@@ -537,11 +573,15 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.opacity-\[0\.5\]{
+  opacity: 0.5;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --unit: 0.065vw;
 }
 
 * {
@@ -565,17 +605,107 @@ nav {
   -webkit-backdrop-filter: blur(7.6px);
   border: 1px solid rgba(255, 255, 255, 1);
 }
+.logo {
+  height: calc(var(--unit) * 60);
+  width: calc(var(--unit) * 180);
+}
+.show {
+  display: flex !important;
+}
 .btn {
-  min-height: 50px;
-  border-radius: 100px;
+  min-height: calc(var(--unit) * 56);
+  border-radius: calc(var(--unit) * 100);
   display: flex;
   align-items: center;
-  padding-inline: 20px;
+  font-size: calc(var(--unit) * 18);
+  padding-inline: calc(var(--unit) * 20);
+  font-weight: 600;
 }
 
-.custom-bg {
-  background-image: url(webpack:///mini-css-extract-plugin//_next/static/media/bg.a6dcf558.png);
-  background-position: center;
-  background-size: cover;
+.icon {
+  height: calc(var(--unit) * 25);
+  width: calc(var(--unit) * 25);
+}
+::-webkit-scrollbar {
+  width: calc(var(--unit) * 12); /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #612ef6; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Roundness of the scrollbar thumb */
+  border: 3px solid #f1f1f1; /* Padding around the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb when hovered */
+}
+
+ul a {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: calc(var(--unit) * 16);
+}
+
+@media not all and (min-width: 640px){
+
+  .max-sm\:order-1{
+    order: 1;
+  }
+
+  .max-sm\:order-2{
+    order: 2;
+  }
+
+  .max-sm\:flex{
+    display: flex;
+  }
+
+  .max-sm\:hidden{
+    display: none;
+  }
+
+  .max-sm\:shadow-xl{
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/media.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+@media (max-width: 480px) {
+  :root {
+    --unit: 0.24132vw;
+  }
+  nav > div {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: calc(var(--unit) * 20);
+    border-radius: calc(var(--unit) * 10);
+  }
+  nav ul {
+    order: 1;
+    flex-direction: column;
+    background-color: white;
+    padding: calc(var(--unit) * 20);
+  }
+  nav button {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+  }
+  .logo {
+    height: calc(var(--unit) * 50);
+    width: calc(var(--unit) * 160);
+  }
 }
 
