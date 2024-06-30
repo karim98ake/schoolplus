@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       <HeroPage />
       <Form />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

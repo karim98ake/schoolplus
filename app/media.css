@@ -27,4 +27,8 @@
     height: calc(var(--unit) * 50);
     width: calc(var(--unit) * 160);
   }
+  .hero-title {
+    font-size: calc(var(--unit) * 44);
+    font-weight: 700;
+  }
 }

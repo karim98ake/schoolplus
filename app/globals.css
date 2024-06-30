@@ -26,12 +26,12 @@ nav {
   transform: translateX(-50%);
   width: 90%;
   background-color: white;
-  background: rgba(255, 255, 255, 0.41);
+  background: rgba(255, 255, 255, 0.71);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.6px);
   -webkit-backdrop-filter: blur(7.6px);
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .logo {
   height: calc(var(--unit) * 60);
@@ -71,9 +71,29 @@ nav {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the scrollbar thumb when hovered */
 }
-
+input {
+  border: none;
+  outline: none;
+  border-radius: calc(var(--unit) * 10);
+}
 ul a {
   font-weight: 600;
   color: rgba(0, 0, 0, 0.8);
   font-size: calc(var(--unit) * 16);
+}
+.hero-title {
+  font-size: calc(var(--unit) * 66);
+  font-weight: 700;
+}
+.text-40 {
+  font-size: calc(var(--unit) * 40);
+  font-weight: 600;
+}
+.text-20 {
+  font-size: calc(var(--unit) * 20);
+  font-weight: 500;
+}
+p {
+  font-size: calc(var(--unit) * 18);
+  font-weight: 500;
 }

@@ -8,6 +8,7 @@ import Book from "@/dist/icons/books.svg";
 import BackPack from "@/dist/icons/backpack.svg";
 import Layer from "@/dist/icons/layer.svg";
 import Menu from "@/dist/icons/menu.svg";
+import School from "@/dist/icons/school.svg";
 
 export {
   Logo,
@@ -20,4 +21,5 @@ export {
   BackPack,
   Layer,
   Menu,
+  School,
 };
