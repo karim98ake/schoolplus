@@ -1,4 +1,3 @@
-// pages/components/Form.tsx
 "use client";
 import { useState } from "react";
 import { useFormik } from "formik";
@@ -9,6 +8,7 @@ import { StoreIcon, CheckMark, School } from "@/dist/imports";
 import Image from "next/image";
 import axios from "axios";
 
+// Validation Schema
 const validationSchema = Yup.object({
   name: Yup.string().required("الاسم الكامل مطلوب"),
   phone: Yup.string().required("رقم الهاتف مطلوب"),
@@ -19,7 +19,7 @@ const validationSchema = Yup.object({
       "fileFormat",
       "نوع الملف غير مدعوم. الرجاء تحميل صورة أو ملف PDF",
       (value) => {
-        if (!value) return false; // attachment is required
+        if (!value) return false;
         const supportedFormats = [
           "image/jpg",
           "image/jpeg",
@@ -39,36 +39,39 @@ const Form: React.FC = () => {
       name: "",
       phone: "",
       adresse: "",
-      file: null,
+      file: null as File | null,
     },
     validationSchema,
     onSubmit: async (values) => {
       setIsSubmitting(true);
+
+      const formData = new FormData();
+      formData.append("name", values.name);
+      formData.append("phone", values.phone);
+      formData.append("adresse", values.adresse);
+      if (values.file) {
+        formData.append("file", values.file);
+      }
+
       try {
-        const formData = new FormData();
-        formData.append("name", values.name);
-        formData.append("phone", values.phone);
-        formData.append("adresse", values.adresse);
-        if (values.file) {
-          formData.append("file", values.file);
+        const response = await axios.post(
+          "http://localhost:3001/api/contact",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          toast.success("تم إرسال طلبك بنجاح");
+        } else {
+          toast.error("حدث خطأ ما، يرجى المحاولة مرة أخرى");
         }
-
-        // Example: Send form data to the API route
-        const response = await axios.post("/api/sendForm", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
-
-        // Example: Handle success response from API
-        console.log("Form submitted successfully:", response.data);
-        toast.success("سيتم معالجة طلبكم والاتصال بكم في أقرب وقت");
-
-        // Reset form after successful submission
-        formik.resetForm();
       } catch (error) {
         console.error("Error submitting the form:", error);
-        toast.error("حدث خطأ أثناء تقديم النموذج. الرجاء المحاولة مرة أخرى.");
+        toast.error("حدث خطأ ما، يرجى المحاولة مرة أخرى");
       } finally {
         setIsSubmitting(false);
       }
@@ -77,7 +80,18 @@ const Form: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-primary flex items-center px-[7%] max-sm:flex-col max-sm:py-14">
-      <ToastContainer hideProgressBar={false} rtl={true} />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
       <div className="left flex flex-col flex-1 justify-center items-center max-sm:order-2">
         <img src={School.src} alt="" />
@@ -196,7 +210,10 @@ const Form: React.FC = () => {
                 className="hidden"
                 name="file"
                 onChange={(event) => {
-                  formik.setFieldValue("file", event.currentTarget.files[0]);
+                  const file = event.currentTarget.files?.[0];
+                  if (file) {
+                    formik.setFieldValue("file", file);
+                  }
                 }}
               />
             </label>
@@ -212,14 +229,20 @@ const Form: React.FC = () => {
             className="btn rounded-lg mt-4 bg-white text-black gap-3 w-full flex justify-center items-center"
             disabled={isSubmitting}
           >
-            <Image
-              src={StoreIcon}
-              width={24}
-              height={25}
-              alt="cart-icon"
-              className="icon"
-            />
-            اطلب أدواتك المدرسية الآن
+            {isSubmitting ? (
+              <>loading...</>
+            ) : (
+              <>
+                <Image
+                  src={StoreIcon}
+                  width={24}
+                  height={25}
+                  alt="cart-icon"
+                  className="icon"
+                />
+                اطلب أدواتك المدرسية الآن
+              </>
+            )}
           </button>
         </form>
       </div>
