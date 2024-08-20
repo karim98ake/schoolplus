@@ -7,11 +7,11 @@ import React, { useState } from "react";
 function Navbar() {
   const [showNav, setShowNav] = useState(false);
   return (
-    <nav className="flex items-center justify-between p-1 px-6 rounded-full">
+    <nav className="flex items-center justify-between p-1 px-6 rounded-full z-[100]">
       <div
         className={
           showNav
-            ? "flex items-center justify-between w-[80%] max-sm:shadow-xl max-sm:hidden show"
+            ? "flex items-center justify-between w-[80%] max-sm:shadow-xl max-sm:hidden show "
             : "flex items-center justify-between w-[80%] max-sm:shadow-xl max-sm:hidden "
         }
       >

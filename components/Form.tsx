@@ -55,7 +55,7 @@ const Form: React.FC = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:3001/api/contact",
+          "https://schoolplusapi.onrender.com/api/contact",
           formData,
           {
             headers: {

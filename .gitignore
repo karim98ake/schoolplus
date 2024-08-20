@@ -3,8 +3,8 @@ node_modules/
 
 # Next.js
 .next/
-out/
-.next/cache
+
+
 # IDE/editor specific
 .vscode/
 .idea/
@@ -17,7 +17,7 @@ out/
 
 # Build files
 build/
-dist/
+
 
 # Environment variables
 .env.local

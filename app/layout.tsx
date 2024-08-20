@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "سكول كيت | خياركم الاول ",
+  title: "قائمتي  | خياركم الاول",
   description: "افضل منصة لطلب الادوات المدرسية و التجهيز للدخول المدرسي",
 };
 
@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar">
-      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <head>
+        <link rel="image" href="/logo.svg" type="image/svg+xml" sizes="any" />
+      </head>
       <body>{children}</body>
     </html>
   );
